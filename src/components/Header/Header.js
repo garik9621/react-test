@@ -1,28 +1,37 @@
 import React from "react"
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
+import './Header.scss'
 
 const Header = props => {
 
 	const [menuList] = React.useState([
 		{
 			title: 'Главная',
-			link: '/'
+			link: '/',
+			exact: true
 		},
 		{
 			title: 'Контакты',
-			link: '/contacts'
+			link: '/contacts',
+			exact: false
 		}
 	])
 
 	return (
 		<header>
-			<nav>
+			<nav className="mb-5">
 				<ul className="nav">
 					{
-						menuList.map((item => {
+						menuList.map(((item, key) => {
 							return (
 								<li className="nav-item">
-									<Link to={item.link} className="nav-link">{item.title}</Link>
+									<NavLink
+										key={key}
+										to={item.link}
+										activeClassName='active'
+										className="nav-link"
+										exact={item.exact}
+									>{item.title}</NavLink>
 								</li>
 							)
 						}))
