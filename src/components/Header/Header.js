@@ -11,6 +11,11 @@ const Header = props => {
 			exact: true
 		},
 		{
+			title: 'Список',
+			link: '/list',
+			exact: false
+		},
+		{
 			title: 'Контакты',
 			link: '/contacts',
 			exact: false
@@ -24,9 +29,10 @@ const Header = props => {
 					{
 						menuList.map(((item, key) => {
 							return (
-								<li className="nav-item">
+								<li
+									key={key}
+									className="nav-item">
 									<NavLink
-										key={key}
 										to={item.link}
 										activeClassName='active'
 										className="nav-link"

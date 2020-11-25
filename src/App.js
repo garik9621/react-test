@@ -4,7 +4,8 @@ import './App.css';
 import DefaultLayout from "./hoc/Layouts/DefaultLayout/DefaultLayout"
 import Main from "./components/Main/Main";
 import Contacts from "./components/Contacts/Contacts";
-import DanceList from "./components/DanceList/DanceList";
+import List from "./components/List/List";
+import ListItemDetail from "./components/List/ListItem/ListItemDetail/ListItemDetail";
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
 		<DefaultLayout>
 			<Switch>
 				<Route exact path="/" component={Main}/>
-				<Route exact path="/dances" component={DanceList}/>
-				<Route exact path="/contacts" component={Contacts}/>
+				<Route exact path="/list" component={List}/>
+				<Route path="/list/:code" component={ListItemDetail} />
+				<Route path="/contacts" component={Contacts}/>
 				<Route component={() => <h1>Страница не найдена</h1>}/>
 			</Switch>
 		</DefaultLayout>
