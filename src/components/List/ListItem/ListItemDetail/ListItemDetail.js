@@ -4,12 +4,10 @@ import {connect} from "react-redux";
 const ListItemDetail = props => {
 
 	React.useEffect(() => {
-		props.increaseView(props.match.params.code)
+		return () => {props.increaseView(props.match.params.code)}
 	})
-	//
-	// const [list] = React.useState(props.list)
 
-	const current = props.list.filter(item => item.code === props.match.params.code)[0]
+	let current = props.list.filter(item => item.code === props.match.params.code)[0]
 
 	return(
 		<div>

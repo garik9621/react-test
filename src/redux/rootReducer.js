@@ -28,22 +28,23 @@ export default function reactReducer(state = initialState, action) {
 	switch (action.type) {
 		case 'ONE_MORE_VIEW':
 
-			// console.log(state.list.map(item => {
-			//
-			// 	const newItem = {
-			// 		...item
-			// 	}
-			//
-			// 	if(item.code === action.code) {
-			// 		newItem.views++
-			// 	}
-			//
-			// 	return newItem
-			// }))
+			const updateState = {
+				...state,
+				list: state.list.map(item => {
 
-			console.log(state.list)
+					const newItem = {
+						...item
+					}
 
-			return state.list
+					if(item.code === action.code) {
+						newItem.views++
+					}
+
+					return newItem
+				})
+			}
+
+			return updateState
 
 		default: break;
 	}
